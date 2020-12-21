@@ -44,7 +44,6 @@ public class UserController {
     @RequestMapping(value = "users/registration", method = RequestMethod.POST)
     public String registerUser(User user, Model model) {
         String userPassword = user.getPassword();
-        // String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{3,}$";
         String regex = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{3,}$";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(userPassword);
